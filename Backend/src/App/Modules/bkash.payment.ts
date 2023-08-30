@@ -43,18 +43,16 @@ const getPayment = AsyncHandler(async (req, res, next) => {
     });
     const result: any = await executeResponse.json();
     console.log("🚀 result:", result);
+    // save response in your db
+
+    // Your frontend success route
     ResponseHandler(res, {
       statusCode: httpStatus.OK,
       success: true,
       message: "Payment executed successfully",
+      redirect: `${Config.FRONTEND_SUCCESS_URL}?data=${result.statusMessage}`,
       data: result,
     });
-    // save response in your db
-
-    // Your frontend success route
-    return res.redirect(
-      `${Config.FRONTEND_SUCCESS_URL}?data=${result.statusMessage}`
-    );
   } else {
     console.log("Payment Failed !!!");
     return res.redirect(Config.FRONTEND_FAIL_URL as string);
