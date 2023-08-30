@@ -1,7 +1,7 @@
 import Config from "../Config";
 import { getGlobalIdToken } from "./GlobalToken";
 
-type TAuthHeaderResponse = {
+export type TAuthHeaderResponse = {
     "Content-Type": string;
     Accept: string;
     authorization: string | null;
@@ -19,3 +19,5 @@ const AuthHeaders = async (): Promise<TAuthHeaderResponse> => {
     "x-app-key": Config.APP_KEY as string,
   };
 };
+
+export default AuthHeaders;

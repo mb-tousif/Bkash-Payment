@@ -33,3 +33,5 @@ const GetToken = AsyncHandler(async (req, res, next) => {
         data: tokenResult?.id_token,
     });
 });
+
+export default GetToken;
