@@ -1,4 +1,4 @@
-import { randomUUID } from "crypto";
+import { v4 as uuid } from "uuid";
 import Config from "../../Config";
 import AsyncHandler from "../../utilities/AsyncHandler";
 import AuthHeaders from "../../utilities/AuthHeader";
@@ -15,7 +15,7 @@ const executePayment = AsyncHandler(async (req, res, next) => {
       amount: amount ? amount : "1",
       currency: "BDT",
       intent: "sale",
-      merchantInvoiceNumber: "Inv" + randomUUID(),
+      merchantInvoiceNumber: "Inv" + uuid(),
       callbackURL: `${Config.BACKEND_CALLBACK_URL}`,
     }),
   });
