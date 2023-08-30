@@ -1,11 +1,12 @@
 import Config from "../Config";
+import bkashConfig from "../Constant";
 
 const TokenHeaders = () => {
   return {
     "Content-Type": "application/json",
     Accept: "application/json",
-    username: Config.USERNAME,
-    password: Config.PASSWORD
+    username: bkashConfig.username,
+    password: bkashConfig.password,
   };
 };
 

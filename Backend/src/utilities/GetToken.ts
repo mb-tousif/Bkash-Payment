@@ -19,7 +19,7 @@ const GetToken = AsyncHandler(async (req, res, next) => {
             app_secret: Config.APP_SECRET,
         }),
     });
-    const tokenResult = await tokenResponse.json();
+    const tokenResult: any = await tokenResponse.json();
     // console.log( "🚀 tokenResult:", tokenResult );
     setGlobalIdToken(tokenResult?.id_token);
     if (!tokenResult) {

@@ -8,15 +8,15 @@ export default function Home() {
   // const router = useRouter();
   const bkashPaymentHandler = async () => {
     try {
-      const result = await Axios.post(config?.baseUrl + "api/bkash/create");
+      const result = await Axios.post(config?.baseUrl + "api/v1/create");
       console.log( "🚀 Result:", result );
       if (result?.data?.status) {
         window.location.href = result?.data?.data?.data?.bkashURL;
       } else {
         toast.error("Something went wrong");
+        // window.location.href = "http://localhost:3000/";
       }
     } catch (error) {
-      window.location.href = "http://localhost:3000/";
       // router.push("/");
       console.log(error);
     }
