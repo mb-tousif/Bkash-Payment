@@ -12,6 +12,7 @@ export default function Home() {
       console.log( "🚀 Result:", result );
       if (result?.data?.status) {
         window.location.href = result?.data?.data?.data?.bkashURL;
+        console.log("🚀 ~ file: index.tsx ~ line 27 ~ bkashPaymentHandler ~ result", result)
       } else {
         toast.error("Something went wrong");
         // window.location.href = "http://localhost:3000/";
